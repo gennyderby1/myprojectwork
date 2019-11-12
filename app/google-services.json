@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "798821189887",
+    "firebase_url": "https://photobooking-c668e.firebaseio.com",
+    "project_id": "photobooking-c668e",
+    "storage_bucket": "photobooking-c668e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798821189887:android:8b4d3d893fedd35462a4ca",
+        "android_client_info": {
+          "package_name": "com.stimuluz.photobooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798821189887-clfqna8kitgjq0edkvh8tp5pum0ieka2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stimuluz.photobooking",
+            "certificate_hash": "7d5a04613403f2e680b57968742f068deb5ce2ec"
+          }
+        },
+        {
+          "client_id": "798821189887-pl55pv1ul1chi9gimakg0oflfgj60488.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwoydOKgxnlTdtZMcRN0P3IuG15HMg2h8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798821189887-pl55pv1ul1chi9gimakg0oflfgj60488.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
