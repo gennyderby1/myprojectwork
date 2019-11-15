@@ -50,7 +50,7 @@ class MyLoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-//            loaderDialog.show()
+            loaderDialog.show()
 
 
             mAuth.signInWithEmailAndPassword(email, password)
@@ -75,14 +75,27 @@ class MyLoginActivity : AppCompatActivity() {
                 }
         }
 
+        materialButton_goRegister.setOnClickListener {
+            val intent = Intent(this@MyLoginActivity, MyRegisterActivity::class.java)
+            startActivity(intent)
+            finishAffinity()
+        }
+
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        loaderDialog.hide()
         if (user != null) {
             val intent = Intent(this@MyLoginActivity, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-            finish()
+            finishAffinity()
 
         }
+    }
+
+    override fun onStop() {
+        loaderDialog.dismiss()
+        super.onStop()
     }
 }

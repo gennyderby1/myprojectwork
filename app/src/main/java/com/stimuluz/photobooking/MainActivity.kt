@@ -1,5 +1,6 @@
 package com.stimuluz.photobooking
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -12,10 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.stimuluz.photobooking.adapter.PhotographerAdapter
 import com.stimuluz.photobooking.model.Photographer
+import com.stimuluz.photobooking.utilities.Utils
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.sign
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,12 +29,16 @@ class MainActivity : AppCompatActivity() {
     private var photographerList: ArrayList<Photographer> = ArrayList()
 
     private lateinit var database: FirebaseFirestore
+    lateinit var loaderDialog: Dialog
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mAuth = FirebaseAuth.getInstance()
+        loaderDialog = Utils.createLoaderDialog(this)
+
 
 
     }
@@ -67,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         database = FirebaseFirestore.getInstance()
 
         database.collection("photographers ")
+            .orderBy("name", Query.Direction.ASCENDING)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 // Successfully received data. List in querySnapshot.documents
@@ -81,7 +88,8 @@ class MainActivity : AppCompatActivity() {
                             document.get("location") as String,
                             document.get("phone") as String,
                             document.get("about") as String,
-                            document.get("pictures") as ArrayList<String>?
+                            document.get("pictures") as ArrayList<String>?,
+                            document.get("fee") as Long
                         )
                     )
 
@@ -103,7 +111,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.logout -> {
                 mAuth.signOut()
                 updateUI(mAuth.currentUser)

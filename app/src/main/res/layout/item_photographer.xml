@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    app:cardElevation="5dp"
-    app:cardBackgroundColor="#F6F7FA">
+    app:cardBackgroundColor="#F6F7FA"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,8 +22,6 @@
             android:id="@+id/circleImageView_photographerPic"
             android:layout_width="69dp"
             android:layout_height="69dp"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp"
             app:layout_constraintBottom_toTopOf="@+id/textView_photographerName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,11 +32,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="7dp"
-            android:textColor="#000000"
             android:fontFamily="@font/axiforma_bold"
+            android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView_photographerLocation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/circleImageView_photographerPic"
@@ -44,19 +42,33 @@
             tools:text="Some date" />
 
         <TextView
+            android:id="@+id/textView_photographerFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/portfolio_item_fee_background"
+            android:fontFamily="@font/axiforma_bold"
+            android:textSize="12sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView_photographerLocation"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView_photographerPic"
+            app:layout_constraintTop_toBottomOf="@+id/textView_photographerName" />
+
+        <TextView
             android:id="@+id/textView_photographerLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
             android:fontFamily="@font/axiforma_book"
             android:textColor="#46495F"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView_photographerPic"
-            app:layout_constraintTop_toBottomOf="@+id/textView_photographerName" />
+            app:layout_constraintStart_toEndOf="@+id/circleImageView_photographerPic" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

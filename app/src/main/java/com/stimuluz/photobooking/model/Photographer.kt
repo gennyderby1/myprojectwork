@@ -8,5 +8,7 @@ data class Photographer(
     var location: String,
     var phone: String,
     var about: String,
-    var portfolio: ArrayList<String>?
+    var portfolio: ArrayList<String>?,
+    var fee: Long
+
 ) : Serializable

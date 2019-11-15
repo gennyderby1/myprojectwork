@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/axiforma_bold"
         android:text="Create a new\naccount"
         android:textColor="#080309"
@@ -128,12 +128,28 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_password2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton_goLogin"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/axiforma_regular"
+        android:text="Already have an account? Go to login."
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialButton_submit" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

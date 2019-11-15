@@ -21,7 +21,7 @@ class PhotographerAdapter(private val photographers: ArrayList<Photographer>) :
     }
 
     override fun getItemCount(): Int {
-        return  photographers.size
+        return photographers.size
     }
 
     override fun onBindViewHolder(holder: PhotographerHolder, position: Int) {
@@ -30,7 +30,8 @@ class PhotographerAdapter(private val photographers: ArrayList<Photographer>) :
 
     }
 
-    class PhotographerHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    class PhotographerHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
 
         //2
         private var view: View = itemView
@@ -47,6 +48,8 @@ class PhotographerAdapter(private val photographers: ArrayList<Photographer>) :
             Picasso.get().load(photographer.picture).into(view.circleImageView_photographerPic)
             view.textView_photographerName.text = photographer.name
             view.textView_photographerLocation.text = photographer.location
+            view.textView_photographerFee.text =
+                itemView.context.getString(R.string.photographer_fee, photographer.fee.toString())
         }
 
 

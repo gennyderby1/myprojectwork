@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">PhotoBooking</string>
+    <string name="app_name">LensMen</string>
+    <string name="photographer_fee">Base fee: %1$s &#x20B5;</string>
 </resources>

@@ -16,11 +16,13 @@ class WelcomeActivity : AppCompatActivity() {
         materialButton_goLogin.setOnClickListener {
             val intent = Intent(this, MyLoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         materialButton_goRegister.setOnClickListener {
             val intent = Intent(this, MyRegisterActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

@@ -82,15 +82,16 @@ class MyRegisterActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("ZORBAM-1", "createUserWithEmail:success")
                         val user = mAuth.currentUser
-                        val newUser = User(user!!.uid, fullName, email,phoneNumber)
+                        val newUser = User(user!!.uid, fullName, email, phoneNumber)
                         FirebaseFirestore.getInstance().collection("users").add(newUser)
                         updateUI(user)
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("ZORBAM-2", "createUserWithEmail:failure", task.exception)
-                        if(task.exception is FirebaseAuthUserCollisionException){
+                        if (task.exception is FirebaseAuthUserCollisionException) {
                             Toast.makeText(
-                                this@MyRegisterActivity, "The email address is already in use by another account.",
+                                this@MyRegisterActivity,
+                                "The email address is already in use by another account.",
                                 Toast.LENGTH_SHORT
                             ).show()
                             updateUI(null)
@@ -104,6 +105,12 @@ class MyRegisterActivity : AppCompatActivity() {
                     }
 
                 }
+        }
+
+        materialButton_goLogin.setOnClickListener {
+            val intent = Intent(this@MyRegisterActivity, MyLoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
